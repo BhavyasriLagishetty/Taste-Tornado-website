@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Confirmation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #e0f7fa;
+      color: #333;
+      transition: background-color 0.5s;
+    }
+
+    .confirmation-container {
+      width: 60%;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: white;
+      transition: transform 0.3s;
+    }
+
+    .confirmation-container:hover {
+      transform: scale(1.02);
+    }
+
+    h2 {
+      text-align: center;
+      color: #06daff;
+    }
+
+    .form-group {
+      margin: 20px 0;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    select,
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .confirm-btn {
+      width: 50%;
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 16px;
+      transition: background-color 0.3s;
+    }
+
+    .confirm-btn:hover {
+      background-color: #45a049;
+    }
+
+    .order-details {
+      text-align: center;
+      margin: 20px 0;
+    }
+
+    .fade-in {
+      animation: fadeIn 2s;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="confirmation-container fade-in">
+    <h2>Order Confirmation</h2>
+    <div class="form-group">
+      <label for="city">Select Delivery City</label>
+      <select id="city">
+        <option value="Hyderabad">Hyderabad</option>
+        <option value="Medchal–Malkajgiri">Medchal–Malkajgiri</option>
+        <!-- Other cities omitted for brevity -->
+        <option value="Ranga Reddy">Ranga Reddy</option>
+        <option value="Sangareddy">Sangareddy</option>
+        <option value="Warangal">Warangal</option>
+        <option value="Nizamabad">Nizamabad</option>
+        <option value="Khammam">Khammam</option>
+        <option value="Karimnagar">Karimnagar</option>
+        <option value="Ramagundam">Ramagundam</option>
+        <option value="Mahabubnagar">Mahabubnagar</option>
+        <option value="Nalgonda">Nalgonda</option>
+        <option value="Adilabad">Adilabad</option>
+        <option value="Suryapet">Suryapet</option>
+        <option value="Miryalaguda">Miryalaguda</option>
+        <option value="Siddipet">Siddipet</option>
+        <option value="Jagtial">Jagtial</option>
+        <option value="Mancherial">Mancherial</option>
+        <option value="Armoor">Armoor</option>
+        <option value="Nirmal">Nirmal</option>
+        <option value="Sircilla">Sircilla</option>
+        <option value="Kamareddy">Kamareddy</option>
+        <option value="Palwancha">Palwancha</option>
+        <option value="Kothagudem">Kothagudem</option>
+        <option value="Bodhan">Bodhan</option>
+        <option value="Sangareddy">Sangareddy</option>
+        <option value="Metpally">Metpally</option>
+        <option value="Zahirabad">Zahirabad</option>
+        <option value="Meerpet–Jillelguda">Meerpet–Jillelguda</option>
+        <option value="Korutla">Korutla</option>
+        <option value="Tandur">Tandur</option>
+        <option value="Badangpet">Badangpet</option>
+        <option value="Kodad">Kodad</option>
+        <option value="Gadwal">Gadwal</option>
+        <option value="Wanaparthy">Wanaparthy</option>
+        <option value="Kagaznagar">Kagaznagar</option>
+        <option value="Bellampalle">Bellampalle</option>
+        <option value="Khanapuram Haveli">Khanapuram Haveli</option>
+        <option value="Bhuvanagiri">Bhuvanagiri</option>
+        <option value="Vikarabad">Vikarabad</option>
+        <option value="Jangaon">Jangaon</option>
+        <option value="Mandamarri">Mandamarri</option>
+        <option value="Peerzadiguda">Peerzadiguda</option>
+        <option value="Bhadrachalam">Bhadrachalam</option>
+        <option value="Bhainsa">Bhainsa</option>
+        <option value="Boduppal">Boduppal</option>
+        <option value="Jawaharnagar">Jawaharnagar</option>
+        <option value="Medak">Medak</option>
+        <option value="Shamshabad">Shamshabad</option>
+        <option value="Mahabubabad">Mahabubabad</option>
+        <option value="Bhupalpally">Bhupalpally</option>
+        <option value="Narayanpet">Narayanpet</option>
+        <option value="Peddapalli">Peddapalli</option>
+        <option value="Dundigal">Dundigal</option>
+        <option value="Huzurnagar">Huzurnagar</option>
+        <option value="Medchal">Medchal</option>
+        <option value="Bandlaguda Jagir">Bandlaguda Jagir</option>
+        <option value="Kyathanpally">Kyathanpally</option>
+        <option value="Manuguru">Manuguru</option>
+        <option value="Naspur">Naspur</option>
+        <option value="Narsampet">Narsampet</option>
+        <option value="Devarakonda">Devarakonda</option>
+        <option value="Dubbaka">Dubbaka</option>
+        <option value="Nakrekal">Nakrekal</option>
+        <option value="Banswada">Banswada</option>
+        <option value="Kalwakurthy">Kalwakurthy</option>
+        <option value="Nagar Kurnool">Nagar Kurnool</option>
+        <option value="Parigi">Parigi</option>
+        <option value="Thumkunta">Thumkunta</option>
+        <option value="Neredcherla">Neredcherla</option>
+        <option value="Luxettipet">Luxettipet</option>
+        <option value="Nagaram">Nagaram</option>
+        <option value="Gajwel">Gajwel</option>
+        <option value="Chennur">Chennur</option>
+        <option value="Asifabad">Asifabad</option>
+        <option value="Madhira">Madhira</option>
+        <option value="Ghatkesar">Ghatkesar</option>
+        <option value="Kompally">Kompally</option>
+        <option value="Dasnapur">Dasnapur</option>
+        <option value="Sarapaka">Sarapaka</option>
+        <option value="Husnabad">Husnabad</option>
+        <option value="Pocharam">Pocharam</option>
+        <option value="Dammaiguda">Dammaiguda</option>
+        <option value="Achampet">Achampet</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="address">Enter Delivery Address</label>
+      <input type="text" id="address" placeholder="Enter your delivery address">
+    </div>
+    <button type="button" class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+    <div class="order-details" id="order-details"></div>
+  </div>
+
+  <script>
+    function confirmOrder() {
+      const selectedCity = document.getElementById('city').value;
+      const address = document.getElementById('address').value;
+      if (address.trim() === "") {
+        alert("Please enter a delivery address.");
+        return;
+      }
+      const deliveryTime = Math.floor(Math.random() * 20) + 1;
+      document.getElementById('order-details').innerHTML = `
+        <div>Your order has been placed successfully and will be delivered in approximately ${deliveryTime} minutes.</div>
+        <div><a href="https://maps.google.com?q=${encodeURIComponent(selectedCity + ' ' + address)}" target="_blank">Track your order</a></div>`;
+    }
+  </script>
+</body>
+
+</html>

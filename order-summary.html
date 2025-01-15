@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Summary</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero.jpg');
+      color: white;
+      background-size: cover;
+    }
+
+    .summary-container {
+      width: 60%;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-image: url('WALL.PNG');
+      background-size: cover;
+    }
+
+    h2 {
+      text-align: center;
+      color: #06daff;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      padding: 10px;
+      border-bottom: 1px solid #fffcfc;
+    }
+
+    li img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+      border-radius: 5px;
+    }
+
+    .item-name {
+      flex: 1;
+      font-weight: bold;
+    }
+
+    .item-price {
+      margin-left: 10px;
+      color: white;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .confirm-btn {
+      width: 50%;
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .confirm-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="summary-container">
+    <h2>Order Summary</h2>
+    <ul id="order-list"></ul>
+    <div class="total" id="total-price"></div>
+    <button type="button" class="confirm-btn" onclick="confirmOrder()">Confirm Order</button>
+  </div>
+
+  <script>
+    function loadOrderSummary() {
+      const selectedItems = JSON.parse(localStorage.getItem('selectedItems'));
+      const orderList = document.getElementById('order-list');
+      let totalPrice = 0;
+
+      selectedItems.forEach(item => {
+        const itemPrice = parseFloat(item.price.replace('$', ''));
+        totalPrice += itemPrice;
+
+        const li = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = item.imgSrc;
+        const itemName = document.createElement('span');
+        itemName.textContent = item.name;
+        itemName.classList.add('item-name');
+        const itemPriceSpan = document.createElement('span');
+        itemPriceSpan.textContent = item.price;
+        itemPriceSpan.classList.add('item-price');
+
+        li.appendChild(img);
+        li.appendChild(itemName);
+        li.appendChild(itemPriceSpan);
+        orderList.appendChild(li);
+      });
+
+      document.getElementById('total-price').textContent = `Total Price: $${totalPrice.toFixed(2)}`;
+      localStorage.setItem('totalPrice', totalPrice.toFixed(2));
+    }
+
+    function confirmOrder() {
+      window.location.href = 'payment.html';
+    }
+
+    window.onload = loadOrderSummary;
+  </script>
+</body>
+
+</html>

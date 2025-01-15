@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .payment-container {
+      width: 60%;
+      margin: 50px auto;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      background-color: white;
+    }
+
+    h2 {
+      text-align: center;
+      color: #06daff;
+    }
+
+    .payment-method {
+      display: flex;
+      align-items: center;
+      margin: 20px 0;
+      padding: 10px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .payment-method img {
+      width: 50px;
+      height: 50px;
+      margin-right: 10px;
+    }
+
+    .payment-method label {
+      margin: 0;
+      font-size: 18px;
+    }
+
+    .payment-method input {
+      margin-right: 10px;
+    }
+
+    .payment-method:hover {
+      background-color: #e9ecef;
+    }
+
+    .total {
+      font-weight: bold;
+      text-align: right;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    .confirm-btn {
+      width: 50%;
+      display: block;
+      margin: 20px auto;
+      padding: 10px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .confirm-btn:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="payment-container">
+    <h2>Select Payment Method</h2>
+    <div class="payment-method">
+      <input type="radio" id="paypal" name="payment-method" value="PayPal">
+      <img src="paypal-icon.svg" alt="PayPal">
+      <label for="paypal">PayPal</label>
+    </div>
+    <div class="payment-method">
+      <input type="radio" id="gpay" name="payment-method" value="Google Pay">
+      <img src="gpay-icon.svg" alt="Google Pay">
+      <label for="gpay">Google Pay</label>
+    </div>
+    <div class="payment-method">
+      <input type="radio" id="creditcard" name="payment-method" value="Credit Card">
+      <img src="creditcard-icon.svg" alt="Credit Card">
+      <label for="creditcard">Credit Card</label>
+    </div>
+    <div class="payment-method">
+      <input type="radio" id="cod" name="payment-method" value="COD">
+      <img src="cod-icon.svg" alt="Cash on Delivery">
+      <label for="cod">Cash on Delivery</label>
+    </div>
+    <div class="total" id="total-price"></div>
+    <button type="button" class="confirm-btn" onclick="processPayment()">Confirm Payment</button>
+  </div>
+
+  <script>
+    function loadPaymentDetails() {
+      const totalPrice = localStorage.getItem('totalPrice');
+      document.getElementById('total-price').textContent = `Total Price: $${totalPrice}`;
+    }
+
+    function processPayment() {
+      const selectedPaymentMethod = document.querySelector('input[name="payment-method"]:checked');
+      if (selectedPaymentMethod) {
+        if (selectedPaymentMethod.value === 'COD') {
+          window.location.href = 'confirmation.html';
+        } else {
+          alert("Currently, only Cash on Delivery is supported.");
+        }
+      } else {
+        alert("Please select a payment method.");
+      }
+    }
+
+    window.onload = loadPaymentDetails;
+  </script>
+</body>
+
+</html>
